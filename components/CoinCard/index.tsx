@@ -8,7 +8,7 @@ const CoinCard = ({ icon, symbol, name, price, priceChange }: IProps) => {
         <article className='my-8 mx-auto flex justify-between px-6 py-12 h-32 items-center w-128 rounded-md bg-white hover:ring transition-all'>
             <div className='flex place-items-center'>
                 <Image src={icon} width={35} height={35} />
-                <div className='ml-2'>
+                <div className='ml-4'>
                     <b>{symbol.toUpperCase()}</b>
                     <p className='font-semibold'>{name}</p>
                     <p className='text-gray-400 font-semibold'>US$ {price}</p>

@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           CriptoList.length > 0 && CriptoList.map(cripto => {
             if (cripto.image) {
               return (
-                <CoinCard icon={cripto.image.large} symbol={cripto.symbol} name={cripto.name} price={cripto.market_data.current_price.usd} priceChange={cripto.market_data.price_change_percentage_1h_in_currency.usd} />
+                <CoinCard key={cripto.id} icon={cripto.image.large} symbol={cripto.symbol} name={cripto.name} price={cripto.market_data.current_price.usd} priceChange={cripto.market_data.price_change_percentage_1h_in_currency.usd} />
               )
             }
           })
