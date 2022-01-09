@@ -148,7 +148,7 @@ const Swap = () => {
 						<h2 className='text-gray-500'>Shell</h2>
 						<div className='flex w-96 sm:w-80 h-12 my-4'>
 							<input
-								type='number'
+								type='text'
 								name='shell'
 								value={swapAmount.shell}
 								onChange={handleChange}
@@ -204,7 +204,7 @@ const Swap = () => {
 						<h2 className='text-gray-500'>Buy</h2>
 						<div className='flex w-96 sm:w-80 h-12 my-4'>
 							<input
-								type='number'
+								type='text'
 								name='buy'
 								value={swapAmount.buy}
 								onChange={handleChange}
