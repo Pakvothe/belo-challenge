@@ -72,63 +72,85 @@ export const AppProvider = ({ children }: AuxProps) => {
 		fetchCoins();
 	}, []);
 
-	const fetchCoins = async () => {
-		await fetchBTC();
-		await fetchETH();
-		await fetchUSDT();
-		await fetchDAI();
-		await fetchUSDC();
+	const fetchCoins = () => {
+		fetchBTC();
+		fetchETH();
+		fetchUSDT();
+		fetchDAI();
+		fetchUSDC();
 	};
-	const fetchBTC = async () => {
-		fetch(
-			'https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				setBTC(data);
-				setLoading(false);
-			});
+	const fetchBTC = () => {
+		try {
+			fetch(
+				'https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					setBTC(data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
-	const fetchETH = async () => {
-		fetch(
-			'https://api.coingecko.com/api/v3/coins/ethereum?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				setETH(data);
-				setLoading(false);
-			});
+	const fetchETH = () => {
+		try {
+			fetch(
+				'https://api.coingecko.com/api/v3/coins/ethereum?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					setETH(data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.error(err);
+		}
 	};
-	const fetchUSDT = async () => {
-		fetch(
-			'https://api.coingecko.com/api/v3/coins/tether?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				setUSDT(data);
-				setLoading(false);
-			});
+	const fetchUSDT = () => {
+		try {
+			fetch(
+				'https://api.coingecko.com/api/v3/coins/tether?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					setUSDT(data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.error(err);
+		}
 	};
-	const fetchDAI = async () => {
-		fetch(
-			'https://api.coingecko.com/api/v3/coins/dai?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				setDAI(data);
-				setLoading(false);
-			});
+
+	const fetchDAI = () => {
+		try {
+			fetch(
+				'https://api.coingecko.com/api/v3/coins/dai?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					setDAI(data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.error(err);
+		}
 	};
-	const fetchUSDC = async () => {
-		fetch(
-			'https://api.coingecko.com/api/v3/coins/usd-coin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
-		)
-			.then((response) => response.json())
-			.then((data) => {
-				setUSDC(data);
-				setLoading(false);
-			});
+
+	const fetchUSDC = () => {
+		try {
+			fetch(
+				'https://api.coingecko.com/api/v3/coins/usd-coin?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false'
+			)
+				.then((response) => response.json())
+				.then((data) => {
+					setUSDC(data);
+					setLoading(false);
+				});
+		} catch (err) {
+			console.error(err);
+		}
 	};
 
 	const changeBalance = (sum: any, sumSymbol: any, sub: any, subSymbol: any) => {

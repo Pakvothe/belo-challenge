@@ -2,6 +2,10 @@ import { render, screen } from '@testing-library/react';
 import { AppProvider } from '../../context';
 import CoinCard from '.';
 
+Object.defineProperty(window, 'fetch', {
+	value: jest.fn(() => Promise.resolve({ json: () => ({}) })),
+});
+
 describe('Component <CoinCard />', () => {
 	it('Renders on screen', () => {
 		render(

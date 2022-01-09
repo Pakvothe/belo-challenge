@@ -1,25 +1,19 @@
 import { render, screen } from '@testing-library/react';
+import Home from '../index';
 import { AppProvider } from '../../context';
-import DoughnutChart from '.';
 
 Object.defineProperty(window, 'fetch', {
 	value: jest.fn(() => Promise.resolve({ json: () => ({}) })),
 });
 
-describe('Component <DoughnutChart />', () => {
+describe('Component <Home />', () => {
 	it('Renders on screen', () => {
 		render(
 			<AppProvider>
-				<DoughnutChart
-					btcBalance={2}
-					ethBalance={2}
-					usdtBalance={2}
-					daiBalance={2}
-					usdcBalance={2}
-				/>
+				<Home />
 			</AppProvider>
 		);
-		const renders = screen.getByRole('img');
-		expect(renders).toBeInTheDocument();
+		const Spinner = screen.getByText('Loading...');
+		expect(Spinner).toBeInTheDocument();
 	});
 });

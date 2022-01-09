@@ -1,8 +1,12 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { useAppContext } from '../../context';
 
 const Sidebar = () => {
 	const { menuOpen, setMenuOpen } = useAppContext();
+	const { pathname } = useRouter();
+	const [activePath, setActivePath] = useState('/');
 
 	const sidebarLinks = [
 		{
@@ -19,6 +23,10 @@ const Sidebar = () => {
 		},
 	];
 
+	useEffect(() => {
+		setActivePath(pathname.substring(1));
+	}, [pathname]);
+
 	return (
 		<div
 			className={`p-12 w-96 ${
@@ -33,7 +41,10 @@ const Sidebar = () => {
 					<Link key={link.title} href={link.url}>
 						<a
 							onClick={() => setMenuOpen(!menuOpen)}
-							className='mb-2 text-lg font-semibold py-4 px-2 sm:px-0 hover:ring transition-all text-center rounded dark:text-gray-200'
+							className={`${
+								activePath === link.url.substring(1) &&
+								'underline decoration-blue-500 sm:decoration-blue-300 decoration-2 transtion-all'
+							} mb-2 text-lg font-semibold py-4 px-2 sm:px-0 hover:ring transition-all text-center rounded dark:text-gray-200`}
 						>
 							{link.title}
 						</a>

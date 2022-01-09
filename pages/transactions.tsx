@@ -24,7 +24,10 @@ const Transactions = () => {
 
 	return (
 		<PageLayout head='Belo | Confirmation'>
-			<section className=' flex flex-col items-center w-128 sm:w-80 sm:h-auto mx-auto'>
+			<section
+				className=' flex flex-col items-center w-128 sm:w-80 sm:h-auto mx-auto'
+				title='TransactionComponent'
+			>
 				{!noTransactions ? (
 					<button
 						className='h-12 my-8 from-blue-500 bg-gradient-to-br to-indigo-500 dark:from-blue-700 dark:to-indigo-700 transition-all p8 w-128 sm:w-80 rounded text-white text-lg hover:ring'
