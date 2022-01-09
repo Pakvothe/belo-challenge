@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --silent --watch"
+    "test": "jest --silent --watchAll"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
