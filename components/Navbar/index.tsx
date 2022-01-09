@@ -17,7 +17,7 @@ const Navbar = () => {
 	return (
 		<nav className='bg-white py-4 px-6 flex items-center justify-between border-b-2 border-blue-500 sm:flex-col sm:relative dark:bg-slate-500 transition-all'>
 			<div className='flex items-center'>
-				<Image src={BeloLogo} width={35} height={35} className='rounded-full' />
+				<Image alt='' src={BeloLogo} width={35} height={35} className='rounded-full' />
 				<Link href='/'>
 					<a
 						className='ml-2 text-lg font-bold text-blue-700 dark:text-blue-200'
@@ -37,7 +37,13 @@ const Navbar = () => {
 				</button>
 			</div>
 			<div className='hidden sm:block sm:absolute bottom-2 left-3'>
-				<Image src={MenuIcon} width={20} height={20} onClick={() => setMenuOpen(!menuOpen)} />
+				<Image
+					alt=''
+					src={MenuIcon}
+					width={20}
+					height={20}
+					onClick={() => setMenuOpen(!menuOpen)}
+				/>
 			</div>
 			<div className='hidden sm:block sm:absolute bottom-2 right-3'>
 				<button

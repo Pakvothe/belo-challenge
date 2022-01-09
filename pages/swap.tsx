@@ -171,6 +171,7 @@ const Swap = () => {
 															className='transition-all font-semibold my-2 rounded flex items-center hover:ring'
 														>
 															<Image
+																alt='cripto'
 																src={cripto.image.large}
 																width={20}
 																height={20}
@@ -195,7 +196,7 @@ const Swap = () => {
 							className='ml-3 hover:transition-transform hover:-translate-x-1'
 							onClick={() => switchCoins()}
 						>
-							<Image src={SwitchIcon} width={25} height={25} />
+							<Image alt='' src={SwitchIcon} width={25} height={25} />
 						</button>
 					</div>
 
@@ -226,6 +227,7 @@ const Swap = () => {
 															className='transition-all font-semibold my-2 rounded flex items-center hover:ring'
 														>
 															<Image
+																alt='cripto'
 																src={cripto.image.large}
 																width={20}
 																height={20}

@@ -71,7 +71,9 @@ const Confirmation = () => {
 								You will receive approximately
 							</p>
 							<div className='w-128 sm:w-80 flex items-center justify-between  mx-auto bg-white px-6 py-4 rounded h-24 dark:bg-slate-500 dark:text-gray-200'>
-								{swapBuy.img && <Image src={swapBuy.img} width={35} height={35} />}
+								{swapBuy.img && (
+									<Image alt='cripto' src={swapBuy.img} width={35} height={35} />
+								)}
 								<h1 className='ml-5 text-2xl sm:text-lg font-bold mb-2 text-center'>{`${
 									swapBuy.amount - (swapBuy.amount * comission) / 100
 								} ${swapBuy.symbol.toUpperCase()}`}</h1>
@@ -84,7 +86,9 @@ const Confirmation = () => {
 							<div className='flex flex-col'>
 								<p className='text-gray-500 mb-1 dark:text-blue-200'>In exchange of</p>
 								<div className='flex items-center'>
-									{swapShell.img && <Image src={swapShell.img} width={25} height={25} />}
+									{swapShell.img && (
+										<Image alt='cripto' src={swapShell.img} width={25} height={25} />
+									)}
 									<h2 className='font-bold text-lg ml-2'>{`${swapShell.name}`}</h2>
 								</div>
 							</div>

@@ -26,7 +26,7 @@ export const AppProvider = ({ children }: AuxProps) => {
 	const [BTC, setBTC] = useState({});
 	const [ETH, setETH] = useState({});
 	const [DAI, setDAI] = useState({});
-	const [hardcodedUserBalance, setHardcodedUserBalance] = useState<Ihardcode>({
+	const [hardcodedUserBalance, setHardcodedUserBalance] = useState<any>({
 		btc: 0.0345,
 		eth: 0.5,
 		usdt: 423,
@@ -131,12 +131,7 @@ export const AppProvider = ({ children }: AuxProps) => {
 			});
 	};
 
-	const changeBalance = (
-		sum: number,
-		sumSymbol: keyof typeof hardcodedUserBalance,
-		sub: number,
-		subSymbol: keyof typeof hardcodedUserBalance
-	) => {
+	const changeBalance = (sum: any, sumSymbol: any, sub: any, subSymbol: any) => {
 		setTimeout(() => {
 			setHardcodedUserBalance({
 				...hardcodedUserBalance,
@@ -246,12 +241,7 @@ interface IContextTypes {
 			}[]
 		>
 	>;
-	changeBalance: (
-		sum: number,
-		sumSymbol: keyof Ihardcode,
-		sub: number,
-		subSymbol: keyof Ihardcode
-	) => void;
+	changeBalance: (sum: number, sumSymbol: string, sub: number, subSymbol: string) => void;
 }
 
 interface ISwap {
@@ -263,11 +253,11 @@ interface ISwap {
 	name: string;
 }
 interface Ihardcode {
-	btc: number;
-	eth: number;
-	usdt: number;
-	dai: number;
-	usdc: number;
+	btc: any;
+	eth: any;
+	usdt: any;
+	dai: any;
+	usdc: any;
 }
 
 interface Itransactions {

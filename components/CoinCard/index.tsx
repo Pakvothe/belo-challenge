@@ -9,7 +9,7 @@ const CoinCard = ({ icon, symbol, name, price, priceChange, transaction, buy }: 
 			{!transaction ? (
 				<>
 					<div className='flex place-items-center'>
-						<Image src={icon} width={35} height={35} />
+						<Image alt='' src={icon} width={35} height={35} />
 						<div className='ml-4 dark:text-blue-200'>
 							<b>{symbol.toUpperCase()}</b>
 							<p className='font-semibold'>{name}</p>
@@ -32,7 +32,7 @@ const CoinCard = ({ icon, symbol, name, price, priceChange, transaction, buy }: 
 				<div className='inline-block w-128 sm:w-80 dark:text-blue-200'>
 					<div className='flex justify-between sm:flex-col'>
 						<div className='flex place-items-center sm:w-max '>
-							<Image src={icon} width={35} height={35} />
+							<Image alt='' src={icon} width={35} height={35} />
 							<div className='ml-4'>
 								<b>{symbol.toUpperCase()}</b>
 								<p className='font-semibold'>{name}</p>
