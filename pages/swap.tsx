@@ -59,6 +59,10 @@ const Swap = () => {
 		setBuyBalance(balanceDictionary[newBuy]);
 		setShellCoin(newShell);
 		setShellBalance(balanceDictionary[newShell]);
+		setSwapAmount(() => ({
+			shell: 0,
+			buy: 0,
+		}));
 	};
 
 	const handleChange = (event: any) => {
