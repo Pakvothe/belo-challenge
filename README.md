@@ -12,7 +12,7 @@ The application is deployed at:
 
 </br>
 
-> https://belo-challenge-pakvothe.vercel.app/swap
+> https://belo-challenge-pakvothe.vercel.app/
 
 </br>
 
