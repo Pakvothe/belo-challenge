@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+
+*,
+*::before,
+*::after {
+	font-family: "proxima-nova", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
@@ -29,4 +32,20 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: #7c66f8;
 	box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Spinner {
+	width:80px;
+	height:80px;
+	border: 10px solid #1d4ed8;
+	border-left-color:rgba(27, 75, 207,0.5);
+	border-radius: 50%;
+	animation: spin 650ms infinite linear;
+	margin-bottom: 1em;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
 }

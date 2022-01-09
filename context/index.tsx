@@ -11,24 +11,54 @@ export const useAppContext = () => {
 };
 
 export const AppProvider = ({ children }: AuxProps) => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [darkMode, setDarkMode] = useState(false)
+    const [loading, setLoading] = useState(true);
     const [BTC, setBTC] = useState({});
     const [ETH, setETH] = useState({});
     const [USDT, setUSDT] = useState({});
     const [DAI, setDAI] = useState({});
     const [USDC, setUSDC] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [hardcodedUserBalance] = useState({
+    const [hardcodedUserBalance, setHardcodedUserBalance] = useState<Ihardcode>({
         btc: 0.0345,
         eth: 0.5,
         usdt: 423,
         dai: 500,
         usdc: 300,
     });
-
+    const [swapShell, setSwapShell] = useState({
+        symbol: '',
+        amount: 0,
+        price: 0,
+        img: '',
+        change: 0,
+        name: ''
+    })
+    const [swapBuy, setSwapBuy] = useState({
+        symbol: '',
+        amount: 0,
+        price: 0,
+        img: '',
+        change: 0,
+        name: ''
+    })
+    const [buyTransactions, setBuyTransactions] = useState([{
+        date: '',
+        hash: '',
+        symbol: '',
+        img: '',
+        amount: 0,
+    }])
+    const [shellTransactions, setShellTransactions] = useState([{
+        date: '',
+        hash: '',
+        symbol: '',
+        img: '',
+        amount: 0,
+    }])
     useEffect(() => {
         fetchCoins()
     }, []);
-
 
     const fetchCoins = async () => {
         await fetchBTC()
@@ -79,6 +109,15 @@ export const AppProvider = ({ children }: AuxProps) => {
             });
     }
 
+    const changeBalance = (sum: number, sumSymbol: keyof typeof hardcodedUserBalance, sub: number, subSymbol: keyof typeof hardcodedUserBalance) => {
+        setTimeout(() => {
+            setHardcodedUserBalance({
+                ...hardcodedUserBalance,
+                [sumSymbol]: hardcodedUserBalance[sumSymbol] + sum,
+                [subSymbol]: hardcodedUserBalance[subSymbol] - sub,
+            })
+        }, 1500);
+    }
     return (
         <ApplicationContext.Provider
             value={{
@@ -90,6 +129,20 @@ export const AppProvider = ({ children }: AuxProps) => {
                 loading,
                 setLoading,
                 hardcodedUserBalance,
+                setHardcodedUserBalance,
+                swapBuy,
+                setSwapBuy,
+                swapShell,
+                setSwapShell,
+                changeBalance,
+                buyTransactions,
+                setBuyTransactions,
+                shellTransactions,
+                setShellTransactions,
+                menuOpen,
+                setMenuOpen,
+                darkMode,
+                setDarkMode
             }}
         >
             {children}
@@ -103,9 +156,49 @@ interface IContextTypes {
     USDT: Record<string, any>,
     DAI: Record<string, any>,
     USDC: Record<string, any>,
-    loading: boolean
-    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+    menuOpen: boolean,
+    setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>,
+    loading: boolean,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>,
+    darkMode: boolean,
+    setDarkMode: React.Dispatch<React.SetStateAction<boolean>>,
     hardcodedUserBalance: Record<string, any>,
+    swapBuy: ISwap,
+    setSwapBuy: React.Dispatch<React.SetStateAction<{ symbol: string; amount: number; price: number; img: string; change: number; name: string; }>>,
+    swapShell: ISwap,
+    setSwapShell: React.Dispatch<React.SetStateAction<{ symbol: string; amount: number; price: number; img: string; change: number; name: string; }>>,
+    setHardcodedUserBalance: React.Dispatch<React.SetStateAction<{
+        btc: number; eth: number; usdt: number; dai: number; usdc: number;
+    }>>,
+    buyTransactions: Itransactions[],
+    shellTransactions: Itransactions[],
+    setBuyTransactions: React.Dispatch<React.SetStateAction<{ date: string; hash: string; symbol: string; img: string; amount: number; }[]>>,
+    setShellTransactions: React.Dispatch<React.SetStateAction<{ date: string; hash: string; symbol: string; img: string; amount: number; }[]>>,
+    changeBalance: (sum: number, sumSymbol: keyof Ihardcode, sub: number, subSymbol: keyof Ihardcode) => void
+}
+
+interface ISwap {
+    symbol: string,
+    amount: number,
+    price: number,
+    img: string,
+    change: number,
+    name: string
+}
+interface Ihardcode {
+    btc: number;
+    eth: number;
+    usdt: number;
+    dai: number;
+    usdc: number;
+}
+
+interface Itransactions {
+    date: string,
+    hash: string,
+    symbol: string,
+    img: string,
+    amount: number
 }
 
 interface AuxProps {

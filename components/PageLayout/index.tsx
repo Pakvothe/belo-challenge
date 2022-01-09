@@ -32,9 +32,9 @@ const PageLayout = ({ children, head }: AuxProps) => {
                 <meta name="twitter:image:alt" content="Pantalla de inicio de la aplicación" />
             </Head>
             <Navbar />
-            <main className='flex'>
+            <main className='flex trans'>
                 <Sidebar />
-                <div className='bg-gray-100 min-h-screen flex-grow p-12 flex flex-col items-center'>
+                <div className='bg-gray-100 min-h-screen flex-grow p-12 sm:px-2 flex flex-col items-center dark:bg-slate-300 transition-all'>
                     {children}
                 </div>
             </main>
@@ -46,6 +46,6 @@ export default PageLayout
 
 
 interface AuxProps {
-    children:  any ;
+    children: any;
     head: string
 }
